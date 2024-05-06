@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springboot-nacos-pconsumer-dep
+  name: springboot-nacos-pconsumer-dep
+  namespace: nacos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-nacos-pconsumer-dep
+  template:
+    metadata:
+      labels:
+        app: springboot-nacos-pconsumer-dep
+    spec:
+      containers:
+      - name: springboot-nacos-pconsumer-dep
+        image: docker.io/hefabao/springboot-nacos-consumer:v0.1
+        imagePullPolicy: IfNotPresent
+        # command: ["sh","-c",'which sleep; sleep 99998; sleep 779;']
+        # command: ["sh","-c",'nginx -g "daemon off;"']

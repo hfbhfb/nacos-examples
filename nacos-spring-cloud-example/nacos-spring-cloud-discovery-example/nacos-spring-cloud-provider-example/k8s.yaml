@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springboot-nacosprivider-dep
+  name: springboot-nacosprivider-dep
+  namespace: nacos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-nacosprivider-dep
+  template:
+    metadata:
+      labels:
+        app: springboot-nacosprivider-dep
+    spec:
+      containers:
+      - name: springboot-nacosprivider-dep
+        image: docker.io/hefabao/springboot-nacosprivider:v0.1
+        imagePullPolicy: IfNotPresent
+        # command: ["sh","-c",'which sleep; sleep 99998; sleep 779;']
+        # command: ["sh","-c",'nginx -g "daemon off;"']
